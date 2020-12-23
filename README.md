@@ -20,7 +20,7 @@ Upon clicking on the start button, a 5 minute timer will begin, and the user is 
 
 ![5](https://user-images.githubusercontent.com/62124046/103040954-d685ca00-4529-11eb-977a-bed6aa5f7a2c.png)
 
-If you clone, note that you will need to provide a Google Maps API key in the app.module.ts file. A live version will be deployed soon.
+If you clone, note that you will need to provide a Google Maps API key in the app.module.ts file in order for the map component in standard mode to work. A live version will be deployed soon.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
