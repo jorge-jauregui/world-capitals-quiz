@@ -1,0 +1,18 @@
+a.change-mode {
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: white;
+}
+a.change-mode:hover {
+  text-decoration: none;
+  opacity: 0.6;
+}
+span.arrow-svg {
+  margin-right: 10px;
+}
+
+nav{
+  background-color: #111111;
+}
+

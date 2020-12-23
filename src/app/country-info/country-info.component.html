@@ -1,0 +1,11 @@
+  <div *ngIf="country">
+    <div class="row justify-content-center learn-more">
+      <p class="learn-more">Learn more about {{country.name}}</p>
+      <img class="flag" src="{{country.flag}}" alt="" height="20px">
+    </div>
+    <p *ngIf="country.population" class="facts"><span class="label">Population:&nbsp;&nbsp;</span>{{country.population | number}}</p>
+    <p *ngIf="country.languages[0]" class="facts"><span class="label">Language:&nbsp;&nbsp;</span>{{country.languages[0].name}}</p>
+    <p *ngIf="country.currencies[0]" class="facts"><span class="label">Currency:&nbsp;&nbsp;</span>{{country.currencies[0].name}}</p>
+    <p *ngIf="country.subregion" class="facts"><span class="label">Region:&nbsp;&nbsp;</span>{{country.subregion}}</p>
+    <p *ngIf="country.gini" class="facts"><span class="label">Gini Coefficient:&nbsp;&nbsp;</span>{{country.gini}}</p>
+  </div>

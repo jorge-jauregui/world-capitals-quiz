@@ -1,0 +1,15 @@
+div.learn-more{
+  padding-top: 20px;
+}
+img.flag {
+  padding-left: 10px;
+}
+p.facts {
+  font-style: italic;
+  font-size: 12px;
+}
+span.label{
+  font-style: italic;
+  color: gray;
+  font-size: 15px;
+}

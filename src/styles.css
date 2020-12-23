@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+  background-color: #111111;
+  color: white;
+  overflow-y: scroll;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

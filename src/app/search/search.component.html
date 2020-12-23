@@ -1,0 +1,31 @@
+<!-- <form [formGroup]="countrySearchForm" (ngSubmit)="sendToRestCountriesApi(countrySearchForm.value)">
+  <input class="form-control" type="text" formControlName="countryName" placeholder="Search for a country...">
+  <button class="btn btn-outline-dark" type="submit">Search</button>
+</form>
+
+<li *ngFor="let result of results">{{}}</li> -->
+
+<div>
+
+  <mat-form-field>
+    <input matInput placeholder="Search" aria-label="State" [matAutocomplete]="auto" [formControl]="countrySearchForm">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+      <ng-container *ngIf="!isLoading">
+        <mat-option *ngFor="let country of filteredResults" [value]="country.capital">
+          <span><b>{{country.capital}}</b></span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br>
+
+<ng-container *ngIf="errorMessage; else elseTemplate">
+  {{errorMessage}}
+</ng-container>
+<ng-template #elseTemplate>
+  <h5>Selected Value: {{countrySearchForm.value}}</h5>
+</ng-template>
+
+</div>

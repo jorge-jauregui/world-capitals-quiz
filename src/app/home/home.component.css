@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+div.container-fluid {
+  margin-top: 50px;
+
+}
+
+h1{
+  font-size: 35px;
+}
+
+div.choose-mode{
+  margin-top: 30px;
+}
+div.map-cover {
+  margin-top: 70px;
+}
+
+img.map-cover {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+}
+
+button.select-mode {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 150px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+button.select-mode:hover {
+  color: gray;
+  border: 1px solid gray;
+}
+
+button.select-mode:focus {
+  outline: none;
+}

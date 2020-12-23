@@ -1,0 +1,8 @@
+p.map-title{
+  padding-top: 20px;
+}
+
+agm-map {
+  width: 450px;
+  height: 300px;
+}

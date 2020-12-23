@@ -1,0 +1,76 @@
+<app-change-mode-bar></app-change-mode-bar>
+<div class="container-fluid">
+  <div class="row justify-content-center choose-region">
+    <p class="choose-region">Choose a region:</p>
+  </div>
+  <div class="row justify-content-center region-buttons">
+    <button
+      [class.active]="isButtonActive('africaBtn')"
+      class="region-button"
+      (click)="onRegionChosen('africa'); resetQuiz(); setButtonActive('africaBtn')">Africa
+    </button>
+    <button
+      [class.active]="isButtonActive('americasBtn')"
+      class="region-button"
+      (click)="onRegionChosen('americas'); resetQuiz(); setButtonActive('americasBtn')">Americas
+    </button>
+    <button
+      [class.active]="isButtonActive('asiaBtn')"
+      class="region-button"
+      (click)="onRegionChosen('asia'); resetQuiz(); setButtonActive('asiaBtn')">Asia
+    </button>
+    <button
+      [class.active]="isButtonActive('europeBtn')"
+      class="region-button"
+      (click)="onRegionChosen('europe'); resetQuiz(); setButtonActive('europeBtn')">Europe
+    </button>
+    <button
+      [class.active]="isButtonActive('oceaniaBtn')"
+      class="region-button"
+      (click)="onRegionChosen('oceania'); resetQuiz(); setButtonActive('oceaniaBtn')">Oceania
+    </button>
+    <button
+      [class.active]="isButtonActive('worldBtn')"
+      class="region-button"
+      (click)="onRegionChosen('world'); resetQuiz(); setButtonActive('worldBtn')">World
+    </button>
+  </div>
+</div>
+
+<div *ngIf="regionData" class="container quiz">
+  <p #score class="text-right score">Score: {{correctAnswerCount}} out of 10</p>
+  <div class="row justify-content-center">
+      <p class="question">#{{this.index + 1}}: What is the capital of {{regionData[index].name}}?</p>
+      <img class="flag" src="{{regionData[index].flag}}" alt="" height="25px">
+  </div>
+
+  <div *ngFor="let quizItem of quizItemArray; let i = index" class="row justify-content-center">
+    <button
+      #item
+      (click)="checkAnswer(i)"
+      class="answer-btn"
+      *ngIf="regionData[index].capital !== ''"
+      [disabled]=answerAttempted>
+      {{quizItem.capital}}
+    </button>
+  </div>
+  <p *ngIf="correctAnswer === true" class="row justify-content-center notification-right">Answer is correct!</p>
+  <p *ngIf="correctAnswer === false" class="row justify-content-center notification-wrong">The correct answer is {{regionData[index].capital}}</p>
+  <div class="row justify-content-center">
+    <button class="submit-answer" *ngIf="answerAttempted === true" [disabled]="reachedTen" (click)="displayNextQuestion();">Next</button>
+  </div>
+
+</div>
+
+<div *ngIf="regionData" class="container-fluid learn-more">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 info">
+      <app-country-info [country]="regionData[index]"></app-country-info>
+    </div>
+    <div class="col-lg-5 map">
+      <app-map [country]="regionData[index]"></app-map>
+    </div>
+  </div>
+</div>
+
+
