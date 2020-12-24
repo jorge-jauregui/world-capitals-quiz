@@ -1,14 +1,14 @@
 # World Capitals Quiz
 
-This project helps users learn about countries and capitals from around the world. There are two game modes (standard and destroyer) that were created by using http.get() requests to fetch data from servers (REST countries API and Google Maps API), cleaning the data using array methods such  sort() and filter(), and displaying it on the template using a blend of data binding, string interpolation, and structural directives. 
+This project helps users learn about countries and capitals from around the world. There are two game modes (standard and destroyer) that were created by using http.get() requests to fetch data from servers (REST countries API and Google Maps API), cleaning the data using array methods such as sort() and filter(), and displaying it on the template using a blend of data binding, string interpolation, and structural directives. 
 
 ![1](https://user-images.githubusercontent.com/62124046/103040963-d980ba80-4529-11eb-8d59-cfec058be59c.png)
 
-Clicking on "Standard Mode" from the home page takes the user to a "classic style" 10 question quiz mode. The Fisher-Yates shuffle algorithm was helpful in shuffling the data (quiz questions) every time the component intiates or a user switches the world region.
+Clicking on "Standard Mode" from the home page takes the user to a "classic style" 10 question quiz mode. The Fisher-Yates shuffle algorithm was helpful in shuffling the data (quiz questions) every time the component initiates or a user switches the world region.
 
 ![2](https://user-images.githubusercontent.com/62124046/103040961-d980ba80-4529-11eb-9ebc-5b8d83eb45d5.png)
 
-Every quiz item is focused on one country. Additional data is provided for the specific country (i.e. Language, GINI coefficient, currency). The latitude and longitude coordinates from the REST Countries API is passed to the map component and the Google Maps API renders the map to the country location. 
+Every quiz item is focused on one country. Additional data is provided for the specific country (i.e. Language, GINI coefficient, currency). The latitude and longitude coordinates from the REST Countries API are passed to the map component and the Google Maps API renders the map to the country location. 
 
 ![3](https://user-images.githubusercontent.com/62124046/103040960-d8e82400-4529-11eb-8c17-2582144eaf44.png)
 
