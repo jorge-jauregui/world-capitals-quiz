@@ -14,5 +14,7 @@ span.arrow-svg {
 
 nav{
   background-color: #111111;
+  position: fixed;
+  width: 100vw;
 }
 

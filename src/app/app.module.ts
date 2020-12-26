@@ -39,7 +39,7 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'INSERT GOOGLE MAPS API KEY HERE'
+      apiKey: 'AIzaSyCAewYD6gDhNLeRCHJS7AOq5CrwFQzptR0'
     }),
     AppRoutingModule,
     BrowserAnimationsModule,

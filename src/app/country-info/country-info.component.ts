@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./country-info.component.css']
 })
 export class CountryInfoComponent implements OnInit {
-  // @Input() countryData;
   @Input() country;
   constructor() { }
 

@@ -2,7 +2,6 @@
 
 div.container-fluid {
   margin-top: 50px;
-
 }
 
 h1{
@@ -20,7 +19,10 @@ img.map-cover {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 65%;
+  height:auto;
+  max-width: 100%;
+  width: 70%;
+  position: absolute;
 }
 
 button.select-mode {
@@ -43,4 +45,10 @@ button.select-mode:hover {
 
 button.select-mode:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 676px) {
+  img.map-cover {
+    width: 90%;
+  }
 }

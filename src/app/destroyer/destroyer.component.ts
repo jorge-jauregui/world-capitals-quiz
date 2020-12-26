@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class DestroyerComponent implements OnInit {
   @ViewChildren('tableHeader', {read: ElementRef}) private tableHeader: QueryList<ElementRef>;
   @ViewChild('regionHeader', {static: true}) regionHeader: ElementRef;
+  @ViewChild('timerParagraph', {static: true}) timerParagraph: ElementRef;
 
   countryData;
 
@@ -24,8 +25,6 @@ export class DestroyerComponent implements OnInit {
   startButtonDisabled: boolean = false;
   pauseButtonDisabled: boolean = null;
 
-
-  // counter = 300;
   counter: number = 300;
   tick: number = 1000;
   countdown;
@@ -40,13 +39,6 @@ export class DestroyerComponent implements OnInit {
     })
   }
 
-  /*
-  ngOnInit submits an http.get() request to obtain all countries and sorts these by region.
-  - The hook then subscribes to valueChanges in order to compare user input to a given capital
-    within the countryData object array.
-  - Within the subscribe method we use a for loop to do the comparison and to have renderer2
-    display the new th elements dependent on whether the user has inputted correct capitals or not.
-  */
   ngOnInit(): void {
     this.capitalForm.disable();
     this.countryApiService
@@ -94,9 +86,10 @@ export class DestroyerComponent implements OnInit {
         this.rendererRow = this.tableHeader.toArray()[i].nativeElement;
         this.rendererText = this.renderer.createText(this.countryData[i].capital);
         this.renderer.appendChild(this.rendererRow, this.rendererText);
-        this.renderer.setStyle(this.rendererRow, 'background-color', '#d8ffd8');
+        this.renderer.setStyle(this.rendererRow, 'border-color', '#d8ffd8');
         this.correctAnswerCount++;
         this.capitalForm.reset();
+        this.countryData[i].capital = "Capital is guessed. Do not repeat new headers";
       }
     }
   }
@@ -109,6 +102,7 @@ export class DestroyerComponent implements OnInit {
           this.checkTimer();
         });
       this.startButtonDisabled = true;
+      this.renderer.setStyle(this.timerParagraph.nativeElement, 'color', 'yellow');
   }
 
   checkTimer() {
@@ -117,12 +111,15 @@ export class DestroyerComponent implements OnInit {
       this.countdown.unsubscribe();
       this.pauseButtonDisabled = true;
       this.startButtonDisabled = true;
+      this.renderer.setStyle(this.timerParagraph.nativeElement, 'color', 'red');
     };
   }
 
   pauseTimer() {
+    this.capitalForm.disable();
     this.countdown.unsubscribe();
     this.startButtonDisabled = false;
+    this.renderer.setStyle(this.timerParagraph.nativeElement, 'color', 'gray');
   }
 
   reloadPage() {

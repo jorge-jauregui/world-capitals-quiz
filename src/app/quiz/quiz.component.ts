@@ -112,7 +112,6 @@ export class QuizComponent implements OnInit {
     this.answerAttempted = true;
   }
 
-  // This function resets all relevant variables to original values to allow for a fresh quiz
   resetQuiz() {
     this.reachedTen = false;
     this.quizItemIndexOne = 0;

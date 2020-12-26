@@ -1,10 +1,14 @@
-
 div.container{
   margin-top: 40px;
 }
 
 div.game-control {
   margin-top: 200px;
+  background-color: #111111;
+}
+
+p.score {
+  color: gray;
 }
 
 button.control-button{
@@ -27,28 +31,37 @@ button.control-button:focus {
   outline: none;
 }
 
+p.timer {
+  font-size: 20px;
+  color: gray;
+}
 
 th.country {
   width: 125px;
   border: 1px solid #202020;
   text-align: center;
   font-size: 12px;
+  background-color: #181818;
 }
 
 th.capital {
   width: 125px;
   border: 1px solid #202020;
-  color: green;
+  color: #d8ffd8;
   text-align: center;
   font-style: italic;
   font-size: 12px;
 }
 
 div.countries-table {
-  border: 3px solid yellow;
+  margin-top: 75px;
 }
 
-div.game-messages {
-  border: 3px solid green;
+@media only screen and (max-width: 992px) {
+  div.game-control {
+    margin-top: 68px;
+  }
+  div.countries-table {
+    margin-top: 325px;
+  }
 }
-
