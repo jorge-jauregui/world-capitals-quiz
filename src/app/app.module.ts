@@ -39,7 +39,7 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCAewYD6gDhNLeRCHJS7AOq5CrwFQzptR0'
+      apiKey: ''
     }),
     AppRoutingModule,
     BrowserAnimationsModule,
