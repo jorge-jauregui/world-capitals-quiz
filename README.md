@@ -1,6 +1,6 @@
 # World Capitals Quiz
 
-Live version of application: https://country-quiz-app-817e4.web.app
+Live demo: https://country-quiz-app-817e4.web.app
 
 This project helps users learn about countries and capitals from around the world. There are two game modes (standard and destroyer) that were created by using http.get() requests to fetch data from servers (REST countries API and Google Maps API), cleaning the data using array methods such as sort() and filter(), and displaying it on the template using a blend of data binding, string interpolation, and structural directives. 
 
