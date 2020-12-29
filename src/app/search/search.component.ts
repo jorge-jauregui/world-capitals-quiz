@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { CountryApiService } from '../country-api.service';
 
-import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { startWith, map, mergeMapTo, mergeMap, catchError, debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { Observable, of, observable } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -12,62 +13,50 @@ import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  countrySearchForm = new FormControl();
-  filteredResults;
+  public countriesAutoComplete$: Observable<any>;
+  searchCountriesCtrl = new FormControl();
   countryData;
-
-  errorMessage: string;
-  isLoading:boolean = false;
-
 
   constructor(
     private countryApiService: CountryApiService,
-    private http: HttpClient,) {
-    }
+    private http: HttpClient,) {};
 
-  ngOnInit(): void {
-    this.countrySearchForm.valueChanges
-      .pipe(
-        debounceTime(500),
-        tap(() => {
-          this.errorMessage = "";
-          this.filteredResults = [];
-          this.isLoading = true;
-        }),
-        switchMap(value => this.http.get(
-            'https://restcountries.eu/rest/v2/name/' + value
-            )
-          .pipe(
-            finalize(() => {
-              this.isLoading = false;
-            }),
-          )
-        )
-      )
-      .subscribe(data => {
-        this.countryData = data;
-        for(let i = 0; i < this.countryData.length; i++) {
-          if(data[i] == undefined) {
-            this.errorMessage = data['Error'];
-            this.filteredResults = [];
-          } else {
-            this.errorMessage = "";
-            this.filteredResults = data[i];
-          }
-          console.log(this.filteredResults);
-        }
-      });
+  lookup(value: string): Observable<any> {
+    return this.http.get(
+      'https://restcountries.eu/rest/v2/name/' + value
+    ).pipe(
+      catchError(_ => {
+        return of(null);
+      })
+    )
   }
 
-  // sendToRestCountriesApi(formValues) {
-  //   this.countryApiService
-  //     .getCountryData(formValues.countryName)
-  //     .subscribe(data => {
-  //       this.countryData = data;
-  //       // this.countrySearchEvent.emit(this.countryData);
-  //       console.log(this.countryData);
-  //       console.log(this.countryData[0].name);
-  //     })
-  // }
+  ngOnInit() {
+    this.initializeForm();
+  }
+
+  initializeForm() {
+    this.countriesAutoComplete$ = this.searchCountriesCtrl.valueChanges.pipe(
+      startWith(''),
+      debounceTime(300),
+      switchMap(value => {
+        if (value !== '') {
+          return this.lookup(value);
+        } else {
+          return of(null);
+        }
+      })
+    )
+  }
+  displayInfo(i) {
+    let searchValue = this.searchCountriesCtrl.value;
+    this.countryApiService
+      .getCountryData(searchValue)
+      .subscribe(data => {
+        this.countryData = data;
+        console.log(this.countryData[0]);
+      })
+  }
+
 
 }

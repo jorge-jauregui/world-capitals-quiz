@@ -1,31 +1,45 @@
-<!-- <form [formGroup]="countrySearchForm" (ngSubmit)="sendToRestCountriesApi(countrySearchForm.value)">
-  <input class="form-control" type="text" formControlName="countryName" placeholder="Search for a country...">
-  <button class="btn btn-outline-dark" type="submit">Search</button>
-</form>
+<app-change-mode-bar></app-change-mode-bar>
 
-<li *ngFor="let result of results">{{}}</li> -->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class = "form" fxFlex="600px" fxFlex.xs="100" fxFlexOffset.xs="0" fxFlexOffset="calc(50% - 300px)" fxLayout="column" style="padding: 10px;">
+      <mat-form-field [@.disabled]="true" dense>
+        <input [formControl]="searchCountriesCtrl" type="text" placeholder="Search for countries!" aria-label="Number" matInput [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option #search *ngFor="let item of countriesAutoComplete$ | async; let i = index" [value]="item.name" (click)="displayInfo(i)">
+            <img src="{{item.flag}}" width="35px" alt="{{item.name}} Flag">
+            {{ item.name | titlecase}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </div>
 
-<div>
+  <!-- <div class="countries">
 
-  <mat-form-field>
-    <input matInput placeholder="Search" aria-label="State" [matAutocomplete]="auto" [formControl]="countrySearchForm">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
-      <ng-container *ngIf="!isLoading">
-        <mat-option *ngFor="let country of filteredResults" [value]="country.capital">
-          <span><b>{{country.capital}}</b></span>
-        </mat-option>
-      </ng-container>
-    </mat-autocomplete>
-  </mat-form-field>
+      <div class="choose-country">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{countryData[1].flag}}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">{{countryData[1].name}}</p>
+          </div>
+        </div>
+      </div>
 
-  <br>
+  </div> -->
 
-<ng-container *ngIf="errorMessage; else elseTemplate">
-  {{errorMessage}}
-</ng-container>
-<ng-template #elseTemplate>
-  <h5>Selected Value: {{countrySearchForm.value}}</h5>
-</ng-template>
+  <div *ngIf="countryData" class="learn-more">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 info">
+        <app-country-info [country]="countryData[0]"></app-country-info>
+      </div>
+      <div class="col-lg-5 map">
+        <p>Test</p>
+        <!-- <app-map [country]="countryData[0]"></app-map> -->
+      </div>
+    </div>
+  </div>
 
 </div>
+
+
