@@ -54,7 +54,6 @@ export class SearchComponent implements OnInit {
       .getCountryData(searchValue)
       .subscribe(data => {
         this.countryData = data;
-        console.log(this.countryData[0]);
       })
   }
 
