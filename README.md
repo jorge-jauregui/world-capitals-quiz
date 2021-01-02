@@ -18,7 +18,7 @@ Clicking on "Destroyer Mode" from the home page provides the user with an input,
 
 ![4](https://user-images.githubusercontent.com/62124046/103040957-d84f8d80-4529-11eb-8bf7-3f86053b5268.png)
 
-Upon clicking on the start button, a 5 minute RxJS timer will begin, and the user is able to type world capitals. The use of reactive forms,  the valueChanges observable, and a loop allows the program to monitor user input and detect whether a valid capital was typed or not. Renderer2 allows the correct capital inputs to be dynamically rendered as table headers in the template. Furthermore, the user may pause the game or refresh it entirely.
+Upon clicking on the start button, a 5 minute RxJs timer will begin, and the user is able to type world capitals. The use of reactive forms,  the valueChanges observable, and a loop allows the program to monitor user input and detect whether a valid capital was typed or not. Renderer2 allows the correct capital inputs to be dynamically rendered as table headers in the template. Furthermore, the user may pause the game or refresh it entirely.
 
 ![5](https://user-images.githubusercontent.com/62124046/103040954-d685ca00-4529-11eb-977a-bed6aa5f7a2c.png)
 
@@ -36,7 +36,7 @@ Clicking on a country provides the user with detailed data about the country (i.
 
 
 
-If you clone, note that you will need to provide a Google Maps API key in the app.module.ts file in order for the map component in standard mode to work. A live version will be deployed soon.
+If you clone, note that you will need to provide a Google Maps API key in the app.module.ts file in order for the map component to work.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
