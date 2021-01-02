@@ -33,7 +33,7 @@ export class DestroyerComponent implements OnInit {
               private readonly fb: FormBuilder,
               private readonly renderer: Renderer2,
               private router: Router,
-              public elem: ElementRef) {
+              public elem: ElementRef,) {
     this.capitalForm = this.fb.group({
       capital: null
     })

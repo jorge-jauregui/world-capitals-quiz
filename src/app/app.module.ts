@@ -25,6 +25,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MAPS_API_KEY } from '../../secrets';
 import { SearchInfoComponent } from './search/search-info/search-info.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,7 @@ import { SearchInfoComponent } from './search/search-info/search-info.component'
     ChangeModeBarComponent,
     TimerPipe,
     SearchComponent,
-    SearchInfoComponent
+    SearchInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { SearchInfoComponent } from './search/search-info/search-info.component'
     MatAutocompleteModule,
     MatInputModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [CountryApiService],
   bootstrap: [AppComponent]
