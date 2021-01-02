@@ -1,0 +1,49 @@
+
+h1.table-header {
+  font-size: 35px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+div.col-5 {
+  border: 1px solid #666666;
+}
+
+div.col-7 {
+  border: 1px solid #666666;
+}
+
+div.col-row {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+div.label {
+  font-size: 13px;
+  color: black;
+  background-color: #d3d3d3;
+}
+
+div.data {
+  font-size: 13px;
+  font-style: italic;
+  background-color: #202020
+}
+
+div.flag {
+  margin-top: 40px;
+}
+
+img.flag {
+  margin-top: 40px;
+  width: 400px;
+  height: 200px;
+}
+
+@media only screen and (max-width: 700px) {
+  img.flag {
+    width: 300px;
+    height: 150px;
+
+  }
+}

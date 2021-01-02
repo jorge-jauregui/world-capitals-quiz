@@ -38,7 +38,7 @@ export class SearchComponent implements OnInit {
   initializeForm() {
     this.countriesAutoComplete$ = this.searchCountriesCtrl.valueChanges.pipe(
       startWith(''),
-      debounceTime(300),
+      debounceTime(100),
       switchMap(value => {
         if (value !== '') {
           return this.lookup(value);

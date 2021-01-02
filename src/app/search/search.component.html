@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class = "form" fxFlex="600px" fxFlex.xs="100" fxFlexOffset.xs="0" fxFlexOffset="calc(50% - 300px)" fxLayout="column" style="padding: 10px;">
       <mat-form-field [@.disabled]="true" dense>
-        <input [formControl]="searchCountriesCtrl" type="text" placeholder="Search for countries!" aria-label="Number" matInput [matAutocomplete]="auto">
+        <input [formControl]="searchCountriesCtrl" type="text" placeholder="Search for countries" aria-label="Number" matInput [matAutocomplete]="auto">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
           <mat-option #search *ngFor="let item of countriesAutoComplete$ | async; let i = index" [value]="item.name" (click)="displayInfo(i)">
             <img src="{{item.flag}}" width="35px" alt="{{item.name}} Flag">
@@ -15,27 +15,20 @@
     </div>
   </div>
 
-  <!-- <div class="countries">
+  <div *ngIf="!countryData" class="arrow">
+    <div class="row justify-content-center">
+      <img class="arrow" src="../../assets/gray-arrow.png" width="200px" alt="White arrow pointing to search input">
+    </div>
+    <div class="row justify-content-center info">
+      <p class="info">Use the search bar to learn about any country.</p>
+    </div>
 
-      <div class="choose-country">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{countryData[1].flag}}" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">{{countryData[1].name}}</p>
-          </div>
-        </div>
-      </div>
-
-  </div> -->
+  </div>
 
   <div *ngIf="countryData" class="learn-more">
     <div class="row justify-content-center">
-      <div class="col-lg-5 info">
-        <app-country-info [country]="countryData[0]"></app-country-info>
-      </div>
-      <div class="col-lg-5 map">
-        <p>Test</p>
-        <!-- <app-map [country]="countryData[0]"></app-map> -->
+      <div class="col info">
+        <app-search-info [country]="countryData[0]"></app-search-info>
       </div>
     </div>
   </div>

@@ -1,0 +1,93 @@
+
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <!--Names-->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="table-header">Names</h1>
+          <div class="row col-row">
+            <div class="col-5 label">Common</div>
+            <div class="col-7 data">{{country.name}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Native</div>
+            <div class="col-7 data">{{country.nativeName}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Alternate Spelling(s)</div>
+            <div class="col-7 data">{{country.altSpellings}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!--Geography-->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="table-header">Geography</h1>
+          <div class="row col-row">
+            <div class="col-5 label">Capital</div>
+            <div class="col-7 data">{{country.capital}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Population</div>
+            <div class="col-7 data">{{country.population | number}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Region</div>
+            <div class="col-7 data">{{country.subregion}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Demonym</div>
+            <div class="col-7 data">{{country.demonym}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Area</div>
+            <div class="col-7 data">{{country.area | number}} k&#13217;</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Coordinates</div>
+            <div class="col-7 data">{{country.latlng}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!--Codes-->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="table-header">Codes</h1>
+          <div class="row col-row">
+            <div class="col-5 label">ISO 3166-1 alpha-2</div>
+            <div class="col-7 data">{{country.alpha2Code}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">ISO 3166-1 alpha-3</div>
+            <div class="col-7 data">{{country.alpha3Code}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">International calling code</div>
+            <div class="col-7 data">{{country.callingCodes}}</div>
+          </div>
+          <div class="row col-row">
+            <div class="col-5 label">Top level domain</div>
+            <div class="col-7 data">{{country.topLevelDomain}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 flag">
+      <div class="row justify-content-center">
+        <img class="flag" src="{{country.flag}}" alt="Flag of {{country.name}}">
+      </div>
+      <div class="row justify-content-center">
+        <app-map [country]="country"></app-map>
+      </div>
+    </div>
+
+  </div>
+
+</div>

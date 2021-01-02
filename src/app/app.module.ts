@@ -23,6 +23,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 
 import { MAPS_API_KEY } from '../../secrets';
+import { SearchInfoComponent } from './search/search-info/search-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MAPS_API_KEY } from '../../secrets';
     DestroyerComponent,
     ChangeModeBarComponent,
     TimerPipe,
-    SearchComponent
+    SearchComponent,
+    SearchInfoComponent
   ],
   imports: [
     BrowserModule,

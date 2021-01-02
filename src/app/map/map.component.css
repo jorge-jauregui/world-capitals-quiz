@@ -5,4 +5,5 @@ p.map-title{
 agm-map {
   width: 450px;
   height: 300px;
+  margin-bottom: 20px;
 }
