@@ -106,3 +106,10 @@ p.notification-wrong {
   font-size: 12px;
   color: red;
 }
+
+@media only screen and (max-width: 992px) {
+  p.question, p.score {
+    font-size: 12px;
+  }
+
+}

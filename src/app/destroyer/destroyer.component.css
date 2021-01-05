@@ -59,10 +59,27 @@ div.countries-table {
 }
 
 @media only screen and (max-width: 992px) {
+
+  label.instruction {
+    font-size: 12px;
+  }
+  input.form-control {
+    height: 30px;
+  }
+  p.score {
+    font-size: 12px;
+  }
   div.game-control {
-    margin-top: 68px;
+    margin-top: 61px;
+  }
+  p.timer {
+    font-size: 12px;
   }
   div.countries-table {
-    margin-top: 325px;
+    margin-top: 265px;
+  }
+  svg.control-svg {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -14,7 +14,17 @@ span.arrow-svg {
 
 nav{
   background-color: #111111;
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100vw;
+}
+
+@media only screen and (max-width: 992px) {
+  a.change-mode {
+    font-size: 12px;
+  }
 }
 
